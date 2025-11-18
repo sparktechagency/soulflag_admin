@@ -2,24 +2,14 @@
 
 import * as React from "react";
 import {
-  BarChartBigIcon,
-  BookOpen,
-  Bot,
+  BadgeDollarSignIcon,
+  CalendarIcon,
   CreditCardIcon,
-  FileBadgeIcon,
-  Frame,
   LayoutDashboardIcon,
   LayoutList,
-  LifeBuoy,
-  // biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
-  Map,
+  LockIcon,
   NetworkIcon,
-  PieChart,
-  Send,
-  Settings2,
   SettingsIcon,
-  SquareTerminal,
-  UserCogIcon,
   UsersIcon,
 } from "lucide-react";
 
@@ -30,13 +20,11 @@ import { NavMain } from "@/components/nav-main";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
-import Stars from "@/components/stars";
 
 const data = {
   navMain: [
@@ -66,28 +54,74 @@ const data = {
       ],
     },
     {
-      title: "Affiliate Feeds",
-      url: "/affiliate-feeds",
-      icon: FileBadgeIcon,
+      title: "Revenue",
+      url: "/revenue/plan",
+      icon: BadgeDollarSignIcon,
+      items: [
+        {
+          title: "Subscription Plan",
+          url: "/revenue/plan",
+        },
+        {
+          title: "Digital Products",
+          url: "/revenue/products",
+        },
+        {
+          title: "Transactions",
+          url: "/revenue/transactions",
+        },
+        {
+          title: "Cancellations",
+          url: "/revenue/cancellation",
+        },
+        {
+          title: "Campaign",
+          url: "/revenue/campaign",
+        },
+      ],
     },
     {
-      title: "Reports & Analytics",
-      url: "/report",
-      icon: BarChartBigIcon,
+      title: "Events & Marketing",
+      url: "/events",
+      icon: CalendarIcon,
+      items: [
+        {
+          title: "Events",
+          url: "/events",
+        },
+        {
+          title: "Push Notification",
+          url: "/events/notif",
+        },
+      ],
     },
     {
-      title: "Payouts",
-      url: "/payouts",
-      icon: CreditCardIcon,
+      title: "KVKK",
+      url: "/kvvk",
+      icon: LockIcon,
+      items: [
+        {
+          title: "DSAR Portal",
+          url: "/kvvk",
+        },
+        {
+          title: "Consent Log",
+          url: "/kvvk/log",
+        },
+        {
+          title: "Data Retention",
+          url: "/kvvk/data",
+        },
+      ],
     },
     {
-      title: "Affiliate Network",
-      url: "/network",
+      title: "Admin Accounts",
+      url: "/admin-accounts",
       icon: NetworkIcon,
     },
     {
-      title: "Content Management",
-      url: "/content",
+      title: "Settings",
+      url: "/settings",
       icon: LayoutList,
     },
   ],

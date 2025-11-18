@@ -102,12 +102,13 @@ export function NavMain({
                     </SidebarMenuAction>
                   </CollapsibleTrigger>
 
-                  <CollapsibleContent className="">
+                  <CollapsibleContent>
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton
-                            className="text-background font-semibold"
+                            className="py-6 px-4 text-background font-semibold"
+                            size="md"
                             asChild
                           >
                             <Link href={`${subItem.url}`}>
