@@ -80,8 +80,10 @@ export default function Page() {
             </TableCell>
             <TableCell className="text-center">1.2k users</TableCell>
             <TableCell className="text-center space-x-2">
-              <Button variant={"outline"} size={"icon"}>
-                <EditIcon />
+              <Button variant={"outline"} size={"icon"} asChild>
+                <Link href={"/events/id"}>
+                  <EyeIcon />
+                </Link>
               </Button>
 
               <Button variant={"outline"} size={"icon"}>

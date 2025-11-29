@@ -2,8 +2,10 @@
 
 import * as React from "react";
 import {
+  AlertCircleIcon,
   BadgeDollarSignIcon,
   CalendarIcon,
+  ChartNetworkIcon,
   CreditCardIcon,
   LayoutDashboardIcon,
   LayoutList,
@@ -39,9 +41,14 @@ const data = {
       icon: UsersIcon,
     },
     {
+      title: "Analytics",
+      url: "/analytics",
+      icon: ChartNetworkIcon,
+    },
+    {
       title: "Moderation",
       url: "/moderation",
-      icon: SettingsIcon,
+      icon: AlertCircleIcon,
       items: [
         {
           title: "Moderation Queue",
@@ -121,8 +128,26 @@ const data = {
     },
     {
       title: "Settings",
-      url: "/settings",
-      icon: LayoutList,
+      url: "/settings/profile",
+      icon: SettingsIcon,
+      items: [
+        {
+          title: "Reward Systems",
+          url: "/settings/reward",
+        },
+        {
+          title: "Profile",
+          url: "/settings/profile",
+        },
+        {
+          title: "Privacy Policy",
+          url: "/settings/privacy",
+        },
+        {
+          title: "Terms & Conditions",
+          url: "/settings/terms",
+        },
+      ],
     },
   ],
 };
@@ -139,7 +164,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 height={200}
                 width={600}
                 alt="icon"
-                className="w-2/3 "
+                className="w-2/3"
               />
             </Link>
           </div>

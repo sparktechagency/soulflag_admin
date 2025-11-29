@@ -21,7 +21,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import {
   Status,
   StatusIndicator,
@@ -37,11 +36,11 @@ export default function Page() {
         {/* Traffic Card */}
         <Card className="">
           <CardHeader className="flex justify-between items-center">
-            <CardTitle className="text-2xl">Admin Accounts</CardTitle>
+            <CardTitle className="text-2xl">Reward Systems</CardTitle>
             <Button className="w-fit" variant={"special"} asChild>
-              <Link href={"admin-accounts/create"}>
+              <Link href={"/settings/reward/create"}>
                 <PlusIcon />
-                Create Admin
+                Create New Rule
               </Link>
             </Button>
           </CardHeader>
@@ -60,38 +59,41 @@ export default function Page() {
             <Table>
               <TableHeader className="bg-secondary">
                 <TableRow>
-                  <TableHead className="text-center">Admin</TableHead>
-                  <TableHead className="text-center">Role </TableHead>
-                  <TableHead className="text-center">Email Address</TableHead>
+                  <TableHead className="text-center">Rule Name</TableHead>
+                  <TableHead className="text-center">Reward Type</TableHead>
+                  <TableHead className="text-center">
+                    Trigger Condition
+                  </TableHead>
+                  <TableHead className="text-center">Reward Value</TableHead>
                   <TableHead className="text-center">Status</TableHead>
-                  <TableHead className="text-center">Last Login</TableHead>
                   <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="text-center">Gloirepaluku</TableCell>
-                  <TableCell className="text-center ">Super Admin</TableCell>
-                  <TableCell className="text-center ">
-                    example@gmail.com
+                  <TableCell className="text-center">
+                    7 day login streak Bonus
                   </TableCell>
+                  <TableCell className="text-center ">Gift a Boost</TableCell>
+                  <TableCell className="text-center ">
+                    User logs in 7 consecutive days
+                  </TableCell>
+                  <TableCell className="text-center ">1 Boost</TableCell>
                   <TableCell className="text-center flex justify-center items-center">
                     <Status status="online">
                       <StatusIndicator />
                       <StatusLabel>Active</StatusLabel>
                     </Status>
                   </TableCell>
-                  <TableCell className="text-center ">Nov 12, 2025</TableCell>
-                  <TableCell className="text-center flex gap-2 justify-center">
-                    <Button variant="outline" size={"icon"}>
-                      <EyeIcon />
-                    </Button>
-                    <Button variant="outline" size={"icon"}>
-                      <EditIcon />
-                    </Button>
-                    <Button variant="outline" size={"icon"}>
-                      <Trash2Icon />
-                    </Button>
+                  <TableCell className="text-center">
+                    <div className=" flex gap-2 justify-center">
+                      <Button variant="outline" size={"icon"}>
+                        <EditIcon />
+                      </Button>
+                      <Button variant="outline" size={"icon"}>
+                        <Trash2Icon />
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               </TableBody>
