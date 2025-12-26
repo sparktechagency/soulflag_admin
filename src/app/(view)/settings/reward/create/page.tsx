@@ -81,7 +81,15 @@ export default function Page() {
           <div className="gap-6">
             <div className="space-y-2">
               <Label htmlFor="monthly-price" className="text-sm font-medium">
-                Description
+                Top Description
+              </Label>
+              <Textarea placeholder="Enter event description" />
+            </div>
+          </div>
+          <div className="gap-6">
+            <div className="space-y-2">
+              <Label htmlFor="monthly-price" className="text-sm font-medium">
+                Bottom Description
               </Label>
               <Textarea placeholder="Enter event description" />
             </div>

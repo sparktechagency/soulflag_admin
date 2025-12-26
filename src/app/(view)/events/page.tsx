@@ -10,6 +10,20 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import MultipleSelector from "@/components/ui/multi-select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -48,9 +62,68 @@ export default function Page() {
             <SearchIcon />
           </InputGroupAddon>
         </InputGroup>
-        <Button variant={"outline"} className="px-8!">
-          <SlidersIcon /> Filter
-        </Button>
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant={"outline"} className="px-8!">
+              <SlidersIcon /> Filter
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent
+            align="end"
+            className="w-[600px] grid grid-cols-2 gap-6"
+          >
+            <div className="space-y-4">
+              <Label>Country :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Country" />
+                </SelectTrigger>
+              </Select>
+            </div>
+            <div className="space-y-4">
+              <Label>City :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select City" />
+                </SelectTrigger>
+              </Select>
+            </div>
+            <div className="space-y-4">
+              <Label>Categories :</Label>
+              <MultipleSelector
+                options={[
+                  { value: "popular", label: "Popular" },
+                  { value: "music", label: "Music" },
+                  { value: "sports", label: "Sports" },
+                  { value: "arts", label: "Arts" },
+                  { value: "festival", label: "Festival" },
+                  { value: "stand-up", label: "Stand-up" },
+                  { value: "theatre", label: "Theatre" },
+                  { value: "party", label: "Party" },
+                ]}
+              />
+            </div>
+            <div className="space-y-4">
+              <Label>Date :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select date" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="today">Today</SelectItem>
+                  <SelectItem value="this-week">This Week</SelectItem>
+                  <SelectItem value="this-month">This Month</SelectItem>
+                  <SelectItem value="this-year">This Year</SelectItem>
+                  <SelectItem value="custom-range">
+                    Specific Date Range
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <Table>
         <TableHeader className="bg-secondary">

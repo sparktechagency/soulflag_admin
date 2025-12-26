@@ -63,9 +63,9 @@ export default function Page() {
                   <TableHead className="text-center">Requests ID</TableHead>
                   <TableHead className="text-center">User Name</TableHead>
                   <TableHead className="text-center">Email</TableHead>
-                  <TableHead className="text-center">Requests Type</TableHead>
+
                   <TableHead className="text-center">Submission Date</TableHead>
-                  <TableHead className="text-center">Status</TableHead>
+
                   <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -76,14 +76,9 @@ export default function Page() {
                   <TableCell className="text-center ">
                     example@gmail.com
                   </TableCell>
-                  <TableCell className="text-center ">Access</TableCell>
+
                   <TableCell className="text-center ">Nov 12, 2025</TableCell>
-                  <TableCell className="text-center ">
-                    <Status status="degraded" className="mx-auto">
-                      <StatusIndicator />
-                      <StatusLabel>Pending</StatusLabel>
-                    </Status>
-                  </TableCell>
+
                   <TableCell className="text-center space-x-2">
                     <Button variant={"outline"} size={"icon"}>
                       <CheckIcon />

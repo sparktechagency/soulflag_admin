@@ -1,16 +1,12 @@
-"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 import {
-  BanIcon,
   CheckIcon,
-  DownloadIcon,
   EditIcon,
-  EyeIcon,
   PlusIcon,
   SearchIcon,
   SlidersIcon,
+  Trash2Icon,
   XIcon,
 } from "lucide-react";
 import {
@@ -26,37 +22,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Status,
   StatusIndicator,
   StatusLabel,
 } from "@/components/kibo-ui/status";
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsList, TabsTrigger } from "@/components/custom-tabs";
-import { useState } from "react";
 
 export default function Page() {
-  const [tabSelected, setTabSelected] = useState("Privacy policy");
   return (
     <main className="min-h-screen w-full flex flex-col gap-6 px-0 md:px-6 lg:px-0 overflow-x-hidden">
       {/* Main Grid */}
       <div className="w-full">
-        <Tabs defaultValue={"Privacy policy"} onValueChange={setTabSelected}>
-          <TabsList>
-            <TabsTrigger value="Privacy Policy">Privacy Policy</TabsTrigger>
-            <TabsTrigger value="Terms & Conditions">
-              Terms & Conditions
-            </TabsTrigger>
-            <TabsTrigger value="Purchase Terms">Purchase Terms</TabsTrigger>
-            <TabsTrigger value="Age Verification">Age Verification</TabsTrigger>
-          </TabsList>
-        </Tabs>
         {/* Traffic Card */}
-        <Card className="mt-6">
-          <CardHeader className="">
-            <CardTitle className="text-2xl">{tabSelected}</CardTitle>
+        <Card className="">
+          <CardHeader className="flex justify-between items-center">
+            <CardTitle className="text-2xl">Data Deletion</CardTitle>
           </CardHeader>
           <CardContent className="flex-1 space-y-6">
             <div className="flex gap-4">
@@ -75,27 +56,37 @@ export default function Page() {
                 <TableRow>
                   <TableHead className="text-center">User Name</TableHead>
                   <TableHead className="text-center">Email</TableHead>
-                  <TableHead className="text-center">Policy</TableHead>
-                  <TableHead className="text-center">Version Number</TableHead>
-                  <TableHead className="text-center">Date & Time</TableHead>
-                  <TableHead className="text-center">Action</TableHead>
+                  <TableHead className="text-center">Request type</TableHead>
+                  <TableHead className="text-center">Submission Date</TableHead>
+                  <TableHead className="text-center">Status</TableHead>
+                  <TableHead className="text-center">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="text-center">John Doe</TableCell>
+                  <TableCell className="text-center">Lara croft</TableCell>
                   <TableCell className="text-center ">
-                    example@gmail.com
+                    lara345@email.com
                   </TableCell>
-                  <TableCell className="text-center ">Privacy Policy</TableCell>
+                  <TableCell className="text-center ">Access</TableCell>
+                  <TableCell className="text-center ">12/23/2025</TableCell>
                   <TableCell className="text-center ">
-                    <Badge>v2.1</Badge>
+                    <div className="flex justify-center items-center">
+                      <Status status="online">
+                        <StatusIndicator />
+                        <StatusLabel>Approved</StatusLabel>
+                      </Status>
+                    </div>
                   </TableCell>
-                  <TableCell className="text-center ">Nov 12, 2025</TableCell>
-                  <TableCell className="text-center ">
-                    <Button variant={"special"}>
-                      <DownloadIcon /> Download
-                    </Button>
+                  <TableCell className="text-center">
+                    <div className="flex justify-center items-center gap-2">
+                      <Button variant="outline" size={"icon"}>
+                        <CheckIcon />
+                      </Button>
+                      <Button variant="outline" size={"icon"}>
+                        <XIcon />
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               </TableBody>

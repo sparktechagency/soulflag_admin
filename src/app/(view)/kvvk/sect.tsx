@@ -8,7 +8,7 @@ import {
 
 export default function Sect() {
   return (
-    <div className="w-full grid lg:grid-cols-4 gap-6">
+    <div className="w-full grid lg:grid-cols-2 gap-6">
       <Card>
         <CardHeader>
           <CardTitle>Total Requests</CardTitle>
@@ -19,26 +19,10 @@ export default function Sect() {
       </Card>
       <Card>
         <CardHeader>
-          <CardTitle>Pending Requests</CardTitle>
+          <CardTitle>Sent Data</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>247</h2>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Completed Requestes</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <h2>890</h2>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Rejected Requests</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <h2>$12,847</h2>
+          <h2 className="text-3xl">2,847</h2>
         </CardContent>
       </Card>
     </div>

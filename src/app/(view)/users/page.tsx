@@ -1,3 +1,4 @@
+"use client";
 import {
   Status,
   StatusIndicator,
@@ -5,11 +6,26 @@ import {
 } from "@/components/kibo-ui/status";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 import {
   Table,
   TableBody,
@@ -18,17 +34,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BanIcon,
+  ChevronDownIcon,
   EditIcon,
   EyeIcon,
   SearchIcon,
   SlidersIcon,
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { DateRange } from "react-day-picker";
 
 export default function Page() {
+  const [open, setOpen] = useState(false);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>({
+    from: new Date(2025, 5, 12),
+    to: new Date(2025, 6, 15),
+  });
+  const [value, setValue] = useState([0, 100]);
   return (
     <div className="space-y-2">
       <h1 className="text-2xl font-semibold">All Users</h1>
@@ -40,9 +65,145 @@ export default function Page() {
             <SearchIcon />
           </InputGroupAddon>
         </InputGroup>
-        <Button variant={"outline"} className="px-8!">
-          <SlidersIcon /> Filter
-        </Button>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant={"outline"} className="px-8!">
+              <SlidersIcon /> Filter
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent
+            align="end"
+            className="w-[600px] grid grid-cols-2 gap-6"
+          >
+            <div className="space-y-4">
+              <Label>Subscription Type :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="No subscription" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="plus">Plus</SelectItem>
+                  <SelectItem value="premium">Premium</SelectItem>
+                  <SelectItem value="all">No Subscription</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-4">
+              <Label>Status :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="active">Active</SelectItem>
+                  <SelectItem value="inactive">Inactive</SelectItem>
+                  <SelectItem value="warned">Warned</SelectItem>
+                  <SelectItem value="susp">Suspended</SelectItem>
+                  <SelectItem value="ban">Banned</SelectItem>
+                  <SelectItem value="temp">Temporarily Banned</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-4 w-full h-full flex justify-center items-end">
+              <Tabs className="w-full">
+                <TabsList className="w-full">
+                  <TabsTrigger value="1">All-Star</TabsTrigger>
+                  <TabsTrigger value="2">Not All-star </TabsTrigger>
+                </TabsList>
+              </Tabs>
+            </div>
+            <div className="space-y-4">
+              <Label>Registration date range :</Label>
+              <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    id="date"
+                    className="w-48 justify-between font-normal w-full"
+                  >
+                    {dateRange
+                      ? `${dateRange?.from?.toLocaleDateString()} - ${dateRange?.to?.toLocaleDateString()}`
+                      : "Select date"}
+                    <ChevronDownIcon />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent
+                  className="w-auto overflow-hidden p-0"
+                  align="start"
+                >
+                  <Calendar
+                    mode="range"
+                    defaultMonth={new Date(2025, 5, 12)}
+                    numberOfMonths={2}
+                    className="rounded-lg border shadow-sm"
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+            <div className="space-y-4">
+              <Label>Location :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Location" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="active">
+                    Cities will be put dynamically
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-4">
+              <Label>Interests :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select interest" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="concert">Concert</SelectItem>
+                  <SelectItem value="festival">Festival</SelectItem>
+                  <SelectItem value="party">Party</SelectItem>
+                  <SelectItem value="theatre">Theatre</SelectItem>
+                  <SelectItem value="standup">Stand up</SelectItem>
+                  <SelectItem value="workshop">Workshop</SelectItem>
+                  <SelectItem value="sports">Sports</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-4">
+              <Label>Age :</Label>
+              <div className="w-full space-y-4">
+                <Slider
+                  value={value}
+                  onValueChange={setValue}
+                  max={100}
+                  step={1}
+                />
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>Min: {value[0]}</span>
+                  <span>Max: {value[1]}</span>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <Label>Gender :</Label>
+              <Select>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Gender" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="all">All</SelectItem>
+                  <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
+                  <SelectItem value="non">Non binary</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <Table>
         <TableHeader className="bg-secondary">

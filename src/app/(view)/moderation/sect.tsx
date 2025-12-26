@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
 export default function Sect() {
   return (
@@ -22,7 +23,7 @@ export default function Sect() {
           <CardTitle>Resolved This Week</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>247</h2>
+          <h2 className="text-3xl">247</h2>
         </CardContent>
       </Card>
       <Card>
@@ -30,7 +31,7 @@ export default function Sect() {
           <CardTitle>Photos Awaiting Approval</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>890</h2>
+          <h2 className="text-3xl">890</h2>
         </CardContent>
       </Card>
       <Card>
@@ -38,7 +39,7 @@ export default function Sect() {
           <CardTitle>Photos approved this week</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>$12,847</h2>
+          <h2 className="text-3xl">$12,847</h2>
         </CardContent>
       </Card>
     </div>

@@ -82,6 +82,10 @@ const data = {
           url: "/revenue/cancellation",
         },
         {
+          title: "Refund",
+          url: "/revenue/refund",
+        },
+        {
           title: "Campaign",
           url: "/revenue/campaign",
         },
@@ -118,6 +122,10 @@ const data = {
         {
           title: "Data Retention",
           url: "/kvvk/data",
+        },
+        {
+          title: "Data Deletion",
+          url: "/kvvk/delete",
         },
       ],
     },

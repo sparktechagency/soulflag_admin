@@ -11,10 +11,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { X, Plus, CalendarIcon } from "lucide-react";
+import { X, Plus, CalendarIcon, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Select, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Popover,
   PopoverContent,
@@ -23,6 +29,12 @@ import {
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import MultipleSelector, { Option } from "@/components/ui/multi-select";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { Slider } from "@/components/ui/slider";
 
 interface Feature {
   id: string;
@@ -85,7 +97,7 @@ export default function Page() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="plan-name" className="text-base font-medium">
-              Target Plan
+              Select Subscription/Product
             </Label>
             <Select>
               <SelectTrigger className="w-full">
@@ -95,14 +107,34 @@ export default function Page() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="plan-name" className="text-base font-medium">
+              Target Plan
+            </Label>
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Plus" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1">Favorite</SelectItem>
+                <SelectItem value="2">Stand out</SelectItem>
+                <SelectItem value="3">DM</SelectItem>
+                <SelectItem value="4">Soulflag Plus</SelectItem>
+                <SelectItem value="5">Soulflag Premium</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="plan-name" className="text-base font-medium">
               Discount Percentage
             </Label>
-            <Input
-              id="plan-name"
-              value={planName}
-              onChange={(e) => setPlanName(e.target.value)}
-              className="text-base"
-            />
+            <InputGroup>
+              <InputGroupInput
+                id="plan-name"
+                value={planName}
+                onChange={(e) => setPlanName(e.target.value)}
+                className="text-base"
+              />
+              <InputGroupAddon>%</InputGroupAddon>
+            </InputGroup>
           </div>
           {/* Pricing Section */}
           <div className="space-y-4">
@@ -161,7 +193,89 @@ export default function Page() {
           {/* Accessible Features */}
           <div className="space-y-4">
             <Label>Target Audience</Label>
-            <MultipleSelector options={OPTIONS} />
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant={"outline"} className="justify-between w-full ">
+                  Select Target audience <ChevronDown />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent
+                align="end"
+                className="w-[76.5dvw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+              >
+                <div className="space-y-4 sm:col-span-2">
+                  <Label>Status </Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="plus">Active</SelectItem>
+                      <SelectItem value="premium">Inactive</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-4">
+                  <Label>Country :</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Country" />
+                    </SelectTrigger>
+                  </Select>
+                </div>
+                <div className="space-y-4">
+                  <Label>City :</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select City" />
+                    </SelectTrigger>
+                  </Select>
+                </div>
+                <div className="space-y-4">
+                  <Label>Gender:</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Gender" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="plus">Male</SelectItem>
+                      <SelectItem value="premium">Female</SelectItem>
+                      <SelectItem value="others">Others</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-4">
+                  <Label>Subscription Type :</Label>
+                  <Select>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select subscription" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="plus">Plus</SelectItem>
+                      <SelectItem value="premium">Premium</SelectItem>
+                      <SelectItem value="others">No Subscription</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-4">
+                  <div className="space-y-4">
+                    <h4>Age Range</h4>
+
+                    <Slider min={18} max={60} />
+                    <div className="font-semibold text-sm text-muted-foreground flex justify-between">
+                      <p>18</p>
+                      <p>60+</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="grid">
+                  <Button variant={"outline"}>New Users</Button>
+                  <Button variant={"outline"}>
+                    Those who opened date mode
+                  </Button>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
 
           {/* Status Toggle */}

@@ -25,7 +25,7 @@ export default function Sect() {
           <CardTitle>Active Drivers</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>247</h2>
+          <h2 className="text-3xl">12,847</h2>
         </CardContent>
         <CardFooter>
           <span className="text-blue-600 pr-2">+12% </span> from last month
@@ -36,7 +36,7 @@ export default function Sect() {
           <CardTitle>Matches Today</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>890</h2>
+          <h2 className="text-3xl">12,847</h2>
         </CardContent>
         <CardFooter>
           <span className="text-blue-600 pr-2">+12% </span> from last month
@@ -47,10 +47,10 @@ export default function Sect() {
           <CardTitle>Reports Pending</CardTitle>
         </CardHeader>
         <CardContent>
-          <h2>$12,847</h2>
+          <h2 className="text-3xl">12,847</h2>
         </CardContent>
         <CardFooter>
-          <span className="text-blue-6000 pr-2">+12% </span> from last month
+          <span className="text-blue-600 pr-2">+12% </span> from last month
         </CardFooter>
       </Card>
     </div>

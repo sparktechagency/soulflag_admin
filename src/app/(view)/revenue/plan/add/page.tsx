@@ -14,6 +14,11 @@ import { Switch } from "@/components/ui/switch";
 import { X, Plus } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
+import {
+  Dropzone,
+  DropzoneContent,
+  DropzoneEmptyState,
+} from "@/components/ui/shadcn-io/dropzone";
 
 interface Feature {
   id: string;
@@ -31,7 +36,11 @@ export default function Page() {
   const [accessibleInput, setAccessibleInput] = useState("");
   const [inaccessibleInput, setInaccessibleInput] = useState("");
   const [isActive, setIsActive] = useState(true);
-
+  const [files, setFiles] = useState<File[] | undefined>();
+  const handleDrop = (files: File[]) => {
+    console.log(files);
+    setFiles(files);
+  };
   const addFeature = (
     features: Feature[],
     setFeatures: React.Dispatch<React.SetStateAction<Feature[]>>,
@@ -60,9 +69,36 @@ export default function Page() {
         </CardHeader>
         <CardContent className="space-y-8">
           {/* Plan Name */}
-          <div className="space-y-2">
+          <div className="space-y-4">
+            <Label htmlFor="plan-image" className="text-base font-medium">
+              Photo
+            </Label>
+            <Dropzone
+              accept={{ "image/*": [] }}
+              onDrop={handleDrop}
+              multiple={false}
+              onError={console.error}
+              src={files}
+            >
+              <DropzoneEmptyState />
+              <DropzoneContent />
+            </Dropzone>
+          </div>
+          <div className="space-y-4">
+            <Label htmlFor="plan-text" className="text-base font-medium">
+              Text on the photo
+            </Label>
+            <Input
+              id="plan-text"
+              // value={planName}
+              // onChange={(e) => setPlanName(e.target.value)}
+              placeholder="Type here.."
+              className="text-base"
+            />
+          </div>
+          <div className="space-y-4">
             <Label htmlFor="plan-name" className="text-base font-medium">
-              Plan Name
+              Subscription plan name
             </Label>
             <Input
               id="plan-name"
@@ -75,15 +111,15 @@ export default function Page() {
           {/* Pricing Section */}
           <div className="space-y-4">
             <h3 className="text-base font-semibold">Pricing</h3>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="monthly-price" className="text-sm font-medium">
                   Weekly Price
                 </Label>
                 <Input
                   id="monthly-price"
-                  value={monthlyPrice}
-                  onChange={(e) => setMonthlyPrice(e.target.value)}
+                  // value={monthlyPrice}
+                  // onChange={(e) => setMonthlyPrice(e.target.value)}
                   className="text-base"
                 />
               </div>
@@ -93,8 +129,19 @@ export default function Page() {
                 </Label>
                 <Input
                   id="yearly-price"
-                  value={yearlyPrice}
-                  onChange={(e) => setYearlyPrice(e.target.value)}
+                  // value={yearlyPrice}
+                  // onChange={(e) => setYearlyPrice(e.target.value)}
+                  className="text-base"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="yearly-price" className="text-sm font-medium">
+                  3-Month Price
+                </Label>
+                <Input
+                  id="yearly-price"
+                  // value={yearlyPrice}
+                  // onChange={(e) => setYearlyPrice(e.target.value)}
                   className="text-base"
                 />
               </div>
