@@ -80,7 +80,7 @@ export function ChartB() {
   const chartColor = "var(--color-desktop)";
 
   return (
-    <Card>
+    <Card className="">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Revenue Trend</CardTitle>
         {/* Added the Weekly/Monthly Toggles */}

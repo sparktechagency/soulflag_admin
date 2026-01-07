@@ -9,14 +9,14 @@ import ChartF from "./chartF";
 
 export default function Page() {
   return (
-    <section>
+    <section className="overflow-x-hidden space-y-6">
       <Sect />
       <ChartA />
-      <div className="mt-6 grid grid-cols-2 gap-6">
+      <div className="mt-6 lg:grid lg:grid-cols-2 gap-6 space-y-6 lg:space-y-0">
         <ChartB />
         <ChartC />
       </div>
-      <div className="grid grid-cols-3 gap-6 mt-6">
+      <div className="lg:grid lg:grid-cols-3 gap-6 mt-6 space-y-6 lg:space-y-0">
         <ChartD />
         <ChartE />
         <ChartF />

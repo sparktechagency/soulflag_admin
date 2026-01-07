@@ -28,7 +28,7 @@ export default function Page() {
   return (
     <div className="h-full flex flex-col flex-1 gap-6">
       <h2 className="text-2xl">Report Details</h2>
-      <div className="flex-1 h-full w-full grid grid-cols-2 gap-4">
+      <div className="flex-1 h-full w-full lg:grid lg:grid-cols-2 gap-4 space-y-6 lg:space-y-0">
         <Card>
           <CardHeader className="border-b">
             <CardTitle>Report Overview</CardTitle>

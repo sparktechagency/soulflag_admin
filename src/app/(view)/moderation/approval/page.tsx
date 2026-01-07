@@ -40,7 +40,7 @@ export default function Page() {
             <XIcon /> Reject
           </Button>
         </div>
-        <div className="mt-6 w-full grid grid-cols-4 gap-4">
+        <div className="mt-6 w-full lg:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           <Card className="py-0 overflow-hidden">
             <CardHeader className="aspect-[3/2] relative">
               <Checkbox className="absolute z-20 bg-background top-4 left-4" />
