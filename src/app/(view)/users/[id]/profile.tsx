@@ -18,7 +18,7 @@ export default function Profile() {
   const [date, setDate] = React.useState<Date | undefined>();
 
   return (
-    <div className="h-full ">
+    <div className="h-full overflow-y-scroll   ">
       <div className="w-full h-full py-6 grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Name</Label>

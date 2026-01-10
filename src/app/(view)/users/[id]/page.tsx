@@ -61,7 +61,7 @@ export default function Page() {
         <CardContent className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-6 h-full">
           {/* LEFT PANEL */}
           <div className="w-full sm:border-r flex flex-col items-center gap-6 pr-0 sm:pr-4">
-            <Avatar className="size-[110px] sm:size-[140px]">
+            <Avatar className="size-[110px] sm:size-[100px]">
               <AvatarImage src="https://avatar.iran.liara.run/public" />
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
@@ -81,7 +81,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-1  gap-4">
               <Badge variant="outline" className="bg-pink-300 text-pink-600">
                 Tinder Gold
               </Badge>
@@ -93,7 +93,7 @@ export default function Page() {
             </div>
 
             {/* Stats */}
-            <div className="w-full grid grid-cols-2 sm:grid-cols-2 gap-3">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-1 gap-3">
               <Dialog>
                 <DialogTrigger className="w-full bg-blue-100 rounded-lg p-3 sm:p-4 flex flex-col justify-center items-center hover:bg-blue-200 transition active:scale-95">
                   <span className="text-cyan-700 text-xl font-semibold">
@@ -169,7 +169,7 @@ export default function Page() {
 
       {/* USER PHOTOS */}
       {tab === "profile" && (
-        <Card className="mt-4">
+        <Card className="mt-4 h-screen  ">
           <CardHeader>
             <CardTitle className="text-xl sm:text-2xl">User Photos</CardTitle>
           </CardHeader>
