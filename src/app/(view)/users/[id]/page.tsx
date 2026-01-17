@@ -53,12 +53,12 @@ export default function Page() {
 
   return (
     <>
-      <Card className="w-full lg:h-[88dvh] flex flex-col">
+      <Card className="w-full lg:min-h-[88dvh] flex flex-col">
         <CardHeader>
           <CardTitle className="text-xl sm:text-2xl">User Details</CardTitle>
         </CardHeader>
 
-        <CardContent className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 gap-6 h-full">
+        <CardContent className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-5 items-start justify-start gap-6 h-full">
           {/* LEFT PANEL */}
           <div className="w-full sm:border-r flex flex-col items-center gap-6 pr-0 sm:pr-4">
             <Avatar className="size-[110px] sm:size-[100px]">
@@ -169,7 +169,7 @@ export default function Page() {
 
       {/* USER PHOTOS */}
       {tab === "profile" && (
-        <Card className="mt-4 h-screen  ">
+        <Card className="mt-4   ">
           <CardHeader>
             <CardTitle className="text-xl sm:text-2xl">User Photos</CardTitle>
           </CardHeader>
